@@ -3,7 +3,8 @@ import Button from './Button'
 
 const ButtonLists = () => {
   return (
-    <div className='flex overflow-x-scroll no-scrollbar w-[1123px] ml-5'>
+    
+    <div className='flex overflow-x-scroll no-scrollbar w-[1123px] ml-16'>
       <Button name= "All" />
       <Button name= "Cricket" />
       <Button name= "JavaScript" />

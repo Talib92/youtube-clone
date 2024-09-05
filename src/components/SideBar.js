@@ -9,7 +9,7 @@ const SideBar = () => {
   if(!isSideBarOpen) return null;
 
   return (
-    <div className='shadow-sm px-2 w-40'>
+    <div className='shadow-xl px-2 w-44 fixed  h-full bg-white top-[69px] rounded-md'>
       <Link to={"/"}> <h1 className='font-bold'>Home</h1> </Link>
       <ul>
         <li>Shorts</li>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleSideBar } from '../utils/sideBarSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -38,12 +39,13 @@ const Header = () => {
 
   return (
     <>
-    <div className='grid grid-flow-col px-5 pt-5 shadow-sm '>
+    <div className='grid grid-flow-col px-5 pt-5 shadow-sm fixed bg-white w-full  '>
         <div className='flex col-span-1 '>
             <img className='h-8 mr-2 cursor-pointer' onClick={HandleToggleSideBar} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/800px-Hamburger_icon.svg.png" 
             alt="menu" /> 
-          <img className='h-16 -mt-4' src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6.jpg"
+          <img className='h-16 -mt-4 cursor-pointer' src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6.jpg"
            alt="logo" />
+           
         </div>
 
         <div className='ml-32 col-span-10'>

@@ -17,7 +17,7 @@ const VideoCards = ({videoData}) => {
 
 
   return (
-    <div className='mx-2 my-4 w-[200px] shadow-sm px-2 cursor-pointer hover:bg-blue-50 rounded-lg'>
+    <div className='mx-10 my-4 w-[300px] shadow-sm px-2 cursor-pointer hover:bg-blue-50 rounded-lg'>
         <img className='rounded-lg ' src={thumbnails?.medium?.url} alt="" />
         <ul>
             <li className='font-semibold'>{title}</li>

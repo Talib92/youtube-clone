@@ -1,81 +1,37 @@
-import React from 'react'
-
-const commentsData = [
-    {
-        name:"Talib",
-        text:"My comment is here",
-        replies: [ {
-            name:"Talib",
-            text:"My comment is here",
-            replies: [ {
-                name:"Talib",
-                text:"My comment is here",
-                replies: [ {
-                    name:"Talib",
-                    text:"My comment is here",
-                    replies: []
-                },]
-            },]
-        },]
-    },
-    {
-        name:"Talib",
-        text:"My comment is here",
-        replies: []
-    },
-    {
-        name:"Talib",
-        text:"My comment is here",
-        replies: []
-    },
-    {
-        name:"Talib",
-        text:"My comment is here",
-        replies: []
-    },
-    {
-        name:"Talib",
-        text:"My comment is here",
-        replies: []
-    },
-];
-
-const Comment = ({data}) =>{
-    const {name, text, replies} = data;
-    return (
-        <div className='mt-2 flex bg-gray-100 p-4 shadow-sm mb-2 rounded-md'>
-            <img className='w-6 h-6'
-            src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="user" />
-            <div className='ml-2'>
-                <p className='font-bold'>{name}</p>
-                <p>{text}</p>
-            </div>
-        </div>
-    )
-}
-
-const CommentsList = ({comments}) =>{
-    return(
-        comments.map((comment, index) => 
-        <div  key={index}>
-            <Comment data = {comment} />
-            <div className='pl-6'>
-            <CommentsList comments = {comment.replies}/>       
-            </div> 
-        </div>
-        )
-    )
-}
+import React, { useEffect, useState } from 'react'
+import Comment from './Comment';
+import { YOUTUBE_API_KEY, YOUTUBE_COMMENT_API } from '../utils/constants';
+import { useSearchParams } from 'react-router-dom';
 
 
 const CommentsContainer = () => {
+
+    const [id] = useSearchParams()
+
+    const [comments, setComments] = useState([]);
+
+    const getComments = async () =>{
+
+        const commentsData = await fetch( YOUTUBE_COMMENT_API +
+            id.get("v") +
+            "&key=" +
+            YOUTUBE_API_KEY);
+        const json = await commentsData.json();
+        // console.log(json.items)
+        setComments(json.items)
+    };
+    
+    useEffect(() =>{
+        getComments();
+    },[]);
+
   return (
-    <div className='mt-2 px-2'>
+    <div className='mt-4 px-2 w-[800px] ml-4'>
         <h1 className='font-bold text-xl'>Comments:</h1>
-            <CommentsList comments = {commentsData}/>
-             {/* <Comment data = {commentsData[0]}/> */}
+        {comments.map((comment,index) => <Comment key={index} commentData={comment}/>)}
+        {/* <Comment commentData={comments[0]}/> */}
     </div>
   )
-}
+};
 
 export default CommentsContainer
