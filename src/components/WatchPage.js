@@ -4,7 +4,6 @@ import { closeSideBar } from '../utils/sideBarSlice';
 import { useSearchParams } from 'react-router-dom';
 import CommentsContainer from './CommentsContainer';
 import VideoContainer from './VideoContainer';
-import ButtonLists from './ButtonLists';
 
 const WatchPage = () => {
 

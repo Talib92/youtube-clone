@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleSideBar } from '../utils/sideBarSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
-import { searchVideoText } from '../utils/searchVideoSlice';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -43,11 +42,6 @@ const Header = () => {
     }, 200);
    }
 
-  const handleSearch = (suggestion)=>{
-    dispatch(searchVideoText(suggestion));
-    setSearchQuery(suggestion);
-    setShowSuggestions(false);
-  }
 
   return (
     <>
@@ -77,9 +71,7 @@ const Header = () => {
               {suggestions.map((suggestion)=> 
               <Link to="/results" key = {suggestion}>
 
-              <li className='px-2 mt-1 py-1 hover:bg-gray-50 hover:rounded-lg'
-              
-              onClick={() =>{handleSearch(suggestion)}}>
+              <li className='px-2 mt-1 py-1 hover:bg-gray-50 hover:rounded-lg'>
 
                 {suggestion}
                 </li>

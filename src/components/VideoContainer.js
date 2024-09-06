@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEOS_API } from '../utils/constants';
 import VideoCards from './VideoCards';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { closeSideBar } from '../utils/sideBarSlice';
 
 const VideoContainer = () => {
