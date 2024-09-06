@@ -12,8 +12,8 @@ if (!authorDisplayName || !textOriginal || !authorProfileImageUrl) {
   }
 
   return (
-    <div className='flex mt-4'>
-        <img className='rounded-full mr-4 mb-4' src={authorProfileImageUrl} alt="user" />
+    <div className=' flex mt-4'>
+        <img className='rounded-full mr-4 mb-4 w-12 h-12 mt-1' src={authorProfileImageUrl} alt="user" />
             <div>
                 <p className='font-semibold'>{authorDisplayName}</p>
                 <p className=''>{textOriginal}</p>
