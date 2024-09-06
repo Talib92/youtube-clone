@@ -4,7 +4,6 @@ import VideoCards from './VideoCards';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { closeSideBar } from '../utils/sideBarSlice';
-import ButtonLists from './ButtonLists';
 
 const VideoContainer = () => {
 
@@ -26,7 +25,6 @@ const VideoContainer = () => {
 
   return (
     <>
-    <ButtonLists/>
     <div className='flex flex-wrap ml-4 mt-2 '>
 
       {videos.map((video) =>
