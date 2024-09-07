@@ -4,6 +4,7 @@ import VideoCards from './VideoCards';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { closeSideBar } from '../utils/sideBarSlice';
+import Shimmer from './Shimmer';
 
 const VideoContainer = () => {
 
@@ -23,7 +24,7 @@ const VideoContainer = () => {
     setVideos(json.items)
   }
 
-  return (
+  return videos.length === 0 ? <Shimmer/> : (
     <>
     <div className='flex flex-wrap ml-4 mt-2 '>
 
